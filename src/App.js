@@ -40,32 +40,29 @@ function App() {
   const [user, setUser] = React.useState(null);
 
   React.useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if(authUser) {
         //user logged in 
         console.log(authUser);
         setUser(authUser);
-        if(authUser.displayName) {
-          //don't update username
-        } else {
-          //if new user created
-          return authUser.updateProfile({
-            displayName: username,
-          })
-        }
       } else {
         //user logged out
         setUser(null);
       }
     })
-  }, []);
+
+    return () => {
+      // cleanup action
+      unsubscribe();
+    }
+  }, [user, username]);
 
   React.useEffect(() => {
     // this is where the code runs
     db.collection('posts').onSnapshot(snapshot => { 
       //every time a new post is added, this code runs
       setPosts(snapshot.docs.map(doc => ({
-        id: doc.id ,
+        id: doc.id,
         post: doc.data()
       })));
     })
@@ -74,7 +71,13 @@ function App() {
   const signUp = (event) => {
     event.preventDefault();
 
-    auth.createUserWithEmailAndPassword(email, password) //creates users
+    auth
+    .createUserWithEmailAndPassword(email, password) //creates users
+    .then((authUser) => {
+      return authUser.user.updateProfile({
+        displayName: username
+      })
+    })
     .catch((error) => alert(error.message)); //catches errors and displays an alert
   }
 
@@ -93,32 +96,32 @@ function App() {
              alt="Instagram Logo" 
             />
             </center>
-            <input 
+            <Input 
              type="text"
              placeholder="username"
              value={username}
              onChange={(e) => setUsername(e.target.value)}
             />
-            <input 
+            <Input 
              type="text"
              placeholder="email"
              value={email}
              onChange={(e) => setEmail(e.target.value)}
             />
-            <input 
+            <Input 
              type="text"
              placeholder="password"
              value={password}
              onChange={(e) => setPassword(e.target.value)}
             />
             <Button 
+             variant="contained"
+             color="secondary"
              type="submit"
              onClick={signUp}>
              Sign Up
-            </Button>            
-          
+            </Button>       
           </form>
-          
         </div>
       </Modal>
 
@@ -126,11 +129,26 @@ function App() {
         <img 
         className="appHeaderImage" 
         src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" 
-        alt="Instagram Logo" 
+        alt="" 
         />
+
+        {user ? (
+        <Button 
+         variant="contained"
+         color="secondary"
+         onClick={() => auth.signOut()}>Logout</Button>
+        
+      ): (
+        <Button 
+         variant="outlined"
+         color="secondary"
+         onClick={() => setOpen(true)}>Sign Up</Button>
+      )}
+      
       </div>
 
-      <Button onClick={() => setOpen(true)}>Sign Up</Button>
+      
+      
 
       {
         posts.map(({id, post}) => (
