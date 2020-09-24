@@ -1,0 +1,26 @@
+-------------------- Auto-Git Log --------------------
+		Thu Sep 24 2020 17:40:50 GMT-0500 (Central Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* package-lock.json
+* package.json
+* src/App.css
+* src/App.js
+
+
+Created files:
+* .autogit/autogit.json
+* src/assets/avatar.png
+* src/components/Post.css
+* src/components/Post.js
+* src/firebase.js
+
+
+Deleted files:
+* src/App.test.js
+* src/logo.svg
+* src/setupTests.js
+
+
+Renamed files:
