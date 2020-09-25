@@ -7,8 +7,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
     position: relative;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .uploadProgress {
-    width: 100%
+    width: 100%;
 }

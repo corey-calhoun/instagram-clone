@@ -1,8 +1,9 @@
 .post {
     max-width: 450px;
-    background-color: #fff;
-    border: 1px solid lightgray;
+    background-color: #B7B8B9;
+    border: 1px solid #000;
     margin-bottom: 35px;
+    border-radius: 4px;;
 }
 
 .postHeader {
@@ -18,8 +19,7 @@
 .postImage {
     width: 100%;
     object-fit: contain;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-top: 1px solid #000;
 }
 
 .postText {

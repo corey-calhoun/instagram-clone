@@ -102,10 +102,10 @@ function App() {
        onClose={() => setOpen(false)}
        >
         <div style={modalStyle} className={classes.paper}>
-          <form className="appSignUp">
+          <form className="app-sign-up">
             <center>
             <img 
-             className="appHeaderImage" 
+             className="app-header-image" 
              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" 
              alt="Instagram Logo" 
             />
@@ -144,10 +144,10 @@ function App() {
        onClose={() => setOpenSignIn(false)}
        >
         <div style={modalStyle} className={classes.paper}>
-          <form className="appSignUp">
+          <form className="app-sign-up">
             <center>
             <img 
-             className="appHeaderImage" 
+             className="app-header-image" 
              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" 
              alt="Instagram Logo" 
             />
@@ -175,9 +175,9 @@ function App() {
         </div>
       </Modal>
 
-      <div className="appHeader">
+      <div className="app-header">
         <img 
-        className="appHeaderImage" 
+        className="app-header-image" 
         src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" 
         alt="" 
         />
@@ -189,7 +189,7 @@ function App() {
          onClick={() => auth.signOut()}>Logout</Button>
         
       ): (
-        <div className="loginContainer">
+        <div className="login-container">
           <Button 
             variant="outlined"
             color="secondary"
@@ -207,7 +207,15 @@ function App() {
       
       </div>
 
-      {
+      <div className="app-posts">
+
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ): (
+        <h3>Welcome to Instagram</h3>
+      )}
+
+        {
         posts.map(({id, post}) => (
           <Post 
           key={id}
@@ -217,13 +225,7 @@ function App() {
           />
         ))
       }
-
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ): (
-        <h3>Welcome to Instagram</h3>
-      )}
-      
+      </div>
       
     </div>
   );
