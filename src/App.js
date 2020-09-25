@@ -207,13 +207,6 @@ function App() {
       
       </div>
 
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ): (
-        <h3>Please log in to upload</h3>
-      )}
-      
-
       {
         posts.map(({id, post}) => (
           <Post 
@@ -224,6 +217,13 @@ function App() {
           />
         ))
       }
+
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ): (
+        <h3>Welcome to Instagram</h3>
+      )}
+      
       
     </div>
   );
