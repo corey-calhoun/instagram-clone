@@ -3,7 +3,8 @@
 }
 
 .app {
-  background-color: #30495D;
+  background-color: #181A20;
+  color: #fff;
 }
 
 .app-header {
@@ -26,7 +27,6 @@
 }
 
 .app-posts {
-  padding: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
 }

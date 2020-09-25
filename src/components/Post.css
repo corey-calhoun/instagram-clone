@@ -1,9 +1,10 @@
 .post {
-    max-width: 450px;
-    background-color: #B7B8B9;
-    border: 1px solid #000;
+    max-width: 750px;
+    background-color: transparent;
     margin-bottom: 35px;
     border-radius: 4px;;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .postHeader {
@@ -20,9 +21,11 @@
     width: 100%;
     object-fit: contain;
     border-top: 1px solid #000;
+    background-color: #fff;
 }
 
 .postText {
     font-weight: normal;
     padding: 10px 5px;
+    border: 1px solid lightgray; 
 }
