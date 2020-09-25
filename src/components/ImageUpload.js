@@ -5,9 +5,9 @@ import firebase from 'firebase'
 import { storage, db } from '../firebase'
 
 function ImageUpload({username}) {
-    const [image, setImage] = React.useState(null);
-    const [progress, setProgress] = React.useState(0);
-    const [caption, setCaption] = React.useState('');
+    const [image, setImage] = useState(null);
+    const [progress, setProgress] = useState(0);
+    const [caption, setCaption] = useState('');
 
     const handleChange = (e) => {
         if(e.target.files[0]) { // get first file
@@ -58,9 +58,9 @@ function ImageUpload({username}) {
         <div className='image-upload'>
             <div>
                <progress value={progress} max="100" />
-               <Input type="text" placeholder="Enter a caption..." onChange={event => setCaption(event.value)} value={caption}/> 
-               <Input type="file" onChange={handleChange} />
-               <Button onClick={handleUpload}>
+               <Input className="captionInput" type="text" placeholder="Enter a caption..." onChange={event => setCaption(event.value)} value={caption}/> 
+               <Input className="fileButton" type="file" onChange={handleChange} />
+               <Button variant="outlined" color="secondary" onClick={handleUpload}>
                    Upload
                </Button>
             </div>

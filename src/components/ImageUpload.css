@@ -1,0 +1,20 @@
+.image-upload {
+    display: flex;
+    width: 80%;
+    margin: 25px;
+}
+
+progress {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.captionInput {
+    margin: 15px;
+    width: 200px;
+}
+
+.fileButton {
+    width: 15%%;
+
+}
