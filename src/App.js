@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Post from './components/Post'
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
+import ImageUpload from './components/ImageUpload';
+import { storage } from './firebase';
 
 
 function getModalStyle() {
@@ -207,7 +209,7 @@ function App() {
       </div>
 
       
-      
+      <ImageUpload />
 
       {
         posts.map(({id, post}) => (
