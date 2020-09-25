@@ -45,7 +45,7 @@ function ImageUpload({username}) {
                           imageUrl: url,
                           username: username
                       });
-
+                    // resets fields to default after upload
                       setProgress(0);
                       setCaption('');
                       setImage(null);
@@ -58,8 +58,8 @@ function ImageUpload({username}) {
         <div className='image-upload'>
             <div>
                <progress value={progress} max="100" />
-               <Input className="captionInput" type="text" placeholder="Enter a caption..." onChange={event => setCaption(event.value)} value={caption}/> 
-               <Input className="fileButton" type="file" onChange={handleChange} />
+               <Input className="captionInput" type="text" placeholder="Enter a caption..." onChange={event => setCaption(event.target.value)} value={caption}/> 
+               <input className="fileButton" type="file" onChange={handleChange} />
                <Button variant="outlined" color="secondary" onClick={handleUpload}>
                    Upload
                </Button>

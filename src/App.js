@@ -61,7 +61,7 @@ function App() {
 
   React.useEffect(() => {
     // this is where the code runs
-    db.collection('posts').onSnapshot(snapshot => { 
+    db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => { // puts most recent timestamp image first
       //every time a new post is added, this code runs
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
@@ -210,7 +210,7 @@ function App() {
       {user?.displayName ? (
         <ImageUpload username={user.displayName} />
       ): (
-        <h3>Login to upload</h3>
+        <h3>Please log in to upload</h3>
       )}
       
 

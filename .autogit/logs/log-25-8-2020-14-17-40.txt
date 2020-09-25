@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Fri Sep 25 2020 14:17:40 GMT-0500 (Central Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* src/components/ImageUpload.css
+* src/components/ImageUpload.js
+
+
+Created files:
+* .autogit/logs/log-25-8-2020-13-47-27.txt
+
+
+Deleted files:
+
+
+Renamed files:
