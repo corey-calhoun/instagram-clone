@@ -34,6 +34,7 @@ function App() {
   const [modalStyle] = React.useState(getModalStyle);
   const [posts, setPosts] = React.useState([]); 
   const [open, setOpen] = React.useState(false);
+  const [openSignIn, setOpenSignIn] = React.useState(false);
   const [username, setUsername] = React.useState(''); 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -79,6 +80,18 @@ function App() {
       })
     })
     .catch((error) => alert(error.message)); //catches errors and displays an alert
+
+    setOpen(false);
+  }
+
+  const signIn = (event) => {
+    event.preventDefault();
+
+    auth
+     .signInWithEmailAndPassword(email, password)
+     .catch((error) => alert(error.message))
+
+    setOpenSignIn(false);
   }
 
   return (
@@ -124,6 +137,42 @@ function App() {
           </form>
         </div>
       </Modal>
+      
+      <Modal 
+       open={openSignIn}
+       onClose={() => setOpenSignIn(false)}
+       >
+        <div style={modalStyle} className={classes.paper}>
+          <form className="appSignUp">
+            <center>
+            <img 
+             className="appHeaderImage" 
+             src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" 
+             alt="Instagram Logo" 
+            />
+            </center>
+            <Input 
+             type="text"
+             placeholder="email"
+             value={email}
+             onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input 
+             type="text"
+             placeholder="password"
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button 
+             variant="contained"
+             color="secondary"
+             type="submit"
+             onClick={signIn}>
+             Sign In
+            </Button>       
+          </form>
+        </div>
+      </Modal>
 
       <div className="appHeader">
         <img 
@@ -139,10 +188,20 @@ function App() {
          onClick={() => auth.signOut()}>Logout</Button>
         
       ): (
-        <Button 
-         variant="outlined"
-         color="secondary"
-         onClick={() => setOpen(true)}>Sign Up</Button>
+        <div className="loginContainer">
+          <Button 
+            variant="outlined"
+            color="secondary"
+            onClick={() => setOpenSignIn(true)}>Sign In
+          </Button>
+
+          <Button 
+            variant="outlined"
+            color="secondary"
+            onClick={() => setOpen(true)}>Sign Up
+          </Button>
+        </div>
+        
       )}
       
       </div>
