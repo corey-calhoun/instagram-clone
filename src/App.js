@@ -6,7 +6,6 @@ import Post from './components/Post'
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './components/ImageUpload';
-import { storage } from './firebase';
 
 
 function getModalStyle() {
@@ -208,8 +207,12 @@ function App() {
       
       </div>
 
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ): (
+        <h3>Login to upload</h3>
+      )}
       
-      <ImageUpload />
 
       {
         posts.map(({id, post}) => (
