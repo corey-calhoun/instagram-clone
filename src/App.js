@@ -210,9 +210,9 @@ function App() {
       <div className="app-posts">
 
       {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
+        <ImageUpload username={user.displayName} />  // If user is logged in, SHOW UPLOAD MODAL
       ): (
-        <h3>Welcome to Instagram</h3>
+        null // If user not logged in, DO NOT SHOW MODAL
       )}
 
         {
