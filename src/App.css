@@ -26,12 +26,20 @@
   flex-direction: column;
 }
 
+.main-container {
+  display: flex;
+}
+
 .app-posts {
   display: flex;
   padding: 15px;
 }
 
+.posts-left {
+  margin-left: 10vw;
+}
+
 .posts-right {
-  margin-top: 5%;
-  margin-left: 15%;
+  margin-top: 8vh;
+  margin-left: 5vw;
 }

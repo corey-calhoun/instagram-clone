@@ -208,7 +208,8 @@ function App() {
       
       </div>
 
-      <div className="app-posts">
+      <div className="main-container">
+        <div className="app-posts">
 
         {user?.displayName ? (
           <ImageUpload username={user.displayName} />  // If user is logged in, SHOW UPLOAD MODAL
@@ -221,6 +222,7 @@ function App() {
             posts.map(({id, post}) => (
               <Post 
               key={id}
+              postId={id}
               username={post.username} 
               caption={post.caption} 
               imageUrl={post.imageUrl}
@@ -230,21 +232,26 @@ function App() {
         </div>
 
         <div className="posts-right">
-          <InstagramEmbed
-            url='https://www.instagram.com/p/CFcmRVZgGro/'
-            maxWidth={320}
-            hideCaption={false}
-            containerTagName='div'
-            protocol=''
-            injectScript
-            onLoading={() => {}}
-            onSuccess={() => {}}
-            onAfterRender={() => {}}
-            onFailure={() => {}}
-          />
-        </div>    
-          
+            <InstagramEmbed
+              url='https://www.instagram.com/p/CFcmRVZgGro/'
+              maxWidth={320}
+              hideCaption={false}
+              containerTagName='div'
+              protocol=''
+              injectScript
+              onLoading={() => {}}
+              onSuccess={() => {}}
+              onAfterRender={() => {}}
+              onFailure={() => {}}
+            />
+          </div>
+
+        </div>
       </div>
+
+      
+
+      
     </div>
   );
 }
