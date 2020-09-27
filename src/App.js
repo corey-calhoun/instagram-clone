@@ -6,6 +6,7 @@ import Post from './components/Post'
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './components/ImageUpload';
+import InstagramEmbed from 'react-instagram-embed';
 
 
 function getModalStyle() {
@@ -209,24 +210,41 @@ function App() {
 
       <div className="app-posts">
 
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />  // If user is logged in, SHOW UPLOAD MODAL
-      ): (
-        null // If user not logged in, DO NOT SHOW MODAL
-      )}
+        {user?.displayName ? (
+          <ImageUpload username={user.displayName} />  // If user is logged in, SHOW UPLOAD MODAL
+        ): (
+          null // If user not logged in, DO NOT SHOW MODAL
+        )}
 
-        {
-        posts.map(({id, post}) => (
-          <Post 
-          key={id}
-          username={post.username} 
-          caption={post.caption} 
-          imageUrl={post.imageUrl}
+        <div className="posts-left">
+          {
+            posts.map(({id, post}) => (
+              <Post 
+              key={id}
+              username={post.username} 
+              caption={post.caption} 
+              imageUrl={post.imageUrl}
+              />
+            ))
+          }
+        </div>
+
+        <div className="posts-right">
+          <InstagramEmbed
+            url='https://www.instagram.com/p/CFcmRVZgGro/'
+            maxWidth={320}
+            hideCaption={false}
+            containerTagName='div'
+            protocol=''
+            injectScript
+            onLoading={() => {}}
+            onSuccess={() => {}}
+            onAfterRender={() => {}}
+            onFailure={() => {}}
           />
-        ))
-      }
+        </div>    
+          
       </div>
-      
     </div>
   );
 }

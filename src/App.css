@@ -28,5 +28,10 @@
 
 .app-posts {
   display: flex;
-  flex-direction: column;
+  padding: 15px;
+}
+
+.posts-right {
+  margin-top: 5%;
+  margin-left: 15%;
 }
