@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './Post.css'
-import Avatar from '@material-ui/core/Avatar'
-import { Button, Input} from '@material-ui/core'
+import { Button, Avatar } from '@material-ui/core'
 import { db } from '../firebase';
 
 function Post({ postId, username, caption, imageUrl }) {
@@ -46,14 +45,21 @@ function Post({ postId, username, caption, imageUrl }) {
             alt="user" 
             />
             <h4 className="postText"><strong>{username}</strong> {caption}</h4>
+
+            <div className="post-comments">
+                {comments.map((comment) => (
+                    <p>
+                        <b>{comment.username}</b> {comment.text}
+                    </p>
+                ))}
+            </div>
             
             <form className="comment-box">
-                <Input
+                <input
                  className="post-input"
                  type="text"
                  placeholder="Add a comment..."
                  value={comment}
-                 size="large"
                  onChange={(e) => setComment(e.target.value)}
                 />
                 <Button
