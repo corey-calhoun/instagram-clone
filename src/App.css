@@ -28,6 +28,7 @@
 
 .main-container {
   display: flex;
+  max-width: 100vw;;
 }
 
 .app-posts {

@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sun Sep 27 2020 13:49:59 GMT-0500 (Central Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* src/App.css
+* src/App.js
+* src/components/Post.js
+
+
+Created files:
+* .autogit/logs/log-27-8-2020-13-19-49.txt
+
+
+Deleted files:
+
+
+Renamed files:
