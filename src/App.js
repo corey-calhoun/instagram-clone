@@ -210,41 +210,42 @@ function App() {
 
       <div className="main-container">
         <div className="app-posts">
+          <div className="posts-left">
 
-        {user?.displayName ? (
-          <ImageUpload username={user.displayName} />  // If user is logged in, SHOW UPLOAD MODAL
-        ): (
-          null // If user not logged in, DO NOT SHOW MODAL
-        )}
+          {user?.displayName ? (
+            <ImageUpload username={user.displayName} />  // If user is logged in, SHOW UPLOAD MODAL
+          ): (
+            null // If user not logged in, DO NOT SHOW MODAL
+          )}
 
-        <div className="posts-left">
-          {
-            posts.map(({id, post}) => (
-              <Post 
-              key={id}
-              postId={id}
-              username={post.username} 
-              caption={post.caption} 
-              imageUrl={post.imageUrl}
-              />
-            ))
-          }
-        </div>
-
-        <div className="posts-right">
-            <InstagramEmbed
-              url='https://www.instagram.com/p/CFcmRVZgGro/'
-              maxWidth={320}
-              hideCaption={false}
-              containerTagName='div'
-              protocol=''
-              injectScript
-              onLoading={() => {}}
-              onSuccess={() => {}}
-              onAfterRender={() => {}}
-              onFailure={() => {}}
-            />
+            {
+              posts.map(({id, post}) => (
+                <Post 
+                key={id}
+                postId={id}
+                user={user}
+                username={post.username} 
+                caption={post.caption} 
+                imageUrl={post.imageUrl}
+                />
+              ))
+            }
           </div>
+
+          <div className="posts-right">
+              <InstagramEmbed
+                url='https://www.instagram.com/p/CFcmRVZgGro/'
+                maxWidth={320}
+                hideCaption={false}
+                containerTagName='div'
+                protocol=''
+                injectScript
+                onLoading={() => {}}
+                onSuccess={() => {}}
+                onAfterRender={() => {}}
+                onFailure={() => {}}
+              />
+            </div>
 
         </div>
       </div>
