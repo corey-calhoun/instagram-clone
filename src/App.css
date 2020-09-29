@@ -34,10 +34,11 @@
 .app-posts {
   display: flex;
   padding: 15px;
+  justify-content: center;
 }
 
 .posts-left {
-  margin-left: 10vw;
+  margin-left: 3vw;
 }
 
 .posts-right {

@@ -72,7 +72,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
                  onChange={(e) => setComment(e.target.value)}
                 />
                 <Button
-                 variant="contained"
+                 variant="outlined"
                  color="secondary"
                  className="post-button"
                  type="submit"

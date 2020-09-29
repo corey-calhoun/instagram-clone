@@ -32,17 +32,18 @@
 }
 
 .post-comments {
-    color: #C51162;
+    color: #fff;
     min-height: 5vh;
     padding-top: 10px;
     padding-left: 10px;
-    border: 0.5px solid #fff;
+    border: 1px solid #fff;
 }
 
 .comment-box {
     display: flex;
     border-radius: 4px;;
 }
+
 .post-input {
     flex: 1;
     border: none;
@@ -52,5 +53,4 @@
 
 .post-button {
     flex: 0;
-    border-top: 1px solid lightgray;
 }
