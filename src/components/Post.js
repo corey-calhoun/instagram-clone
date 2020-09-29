@@ -32,7 +32,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
 
         db.collection('posts').doc(postId).collection('comments').add({
             text: comment,
-            username: user.displayName,
+            username: user,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         setComment('');
@@ -58,7 +58,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
             <div className="post-comments">
                 {comments.map((comment) => (
                     <p>
-                        <b>{comment.username}</b> {comment.text}
+                        <b>{comment.username}:</b> {comment.text}
                     </p>
                 ))}
             </div>
