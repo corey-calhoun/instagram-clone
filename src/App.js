@@ -186,20 +186,20 @@ function App() {
         {user ? (
         <Button 
          variant="contained"
-         color="secondary"
+         color="primary"
          onClick={() => auth.signOut()}>Logout</Button>
         
       ): (
         <div className="login-container">
           <Button 
-            variant="outlined"
-            color="secondary"
+            variant="contained"
+            color="primary"
             onClick={() => setOpenSignIn(true)}>Sign In
           </Button>
 
           <Button 
-            variant="outlined"
-            color="secondary"
+            variant="contained"
+            color="primary"
             onClick={() => setOpen(true)}>Sign Up
           </Button>
         </div>
