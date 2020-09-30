@@ -30,9 +30,9 @@ function Post({ postId, user, username, caption, imageUrl }) {
     const postComment = (event) => {
         event.preventDefault();
 
-        db.collection('posts').doc(postId).collection('comments').add({
+        db.collection('posts').doc(postId).collection('comments').add({ 
             text: comment,
-            username: user,
+            username: user.displayName,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         setComment('');
@@ -62,25 +62,29 @@ function Post({ postId, user, username, caption, imageUrl }) {
                     </p>
                 ))}
             </div>
+
+            {user && ( // If user logged in display comment/post option
+               <form className="comment-box">
+                    <input
+                    className="post-input"
+                    type="text"
+                    placeholder="Add a comment..."
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    />
+                    <Button
+                    variant="contained"
+                    color="primary"
+                    className="post-button"
+                    type="submit"
+                    onClick={postComment}
+                    >
+                    Post
+                    </Button>
+                </form> 
+            )}
             
-            <form className="comment-box">
-                <input
-                 className="post-input"
-                 type="text"
-                 placeholder="Add a comment..."
-                 value={comment}
-                 onChange={(e) => setComment(e.target.value)}
-                />
-                <Button
-                 variant="contained"
-                 color="primary"
-                 className="post-button"
-                 type="submit"
-                 onClick={postComment}
-                >
-                Post
-                </Button>
-            </form>
+            
         </div>
     )
 }
