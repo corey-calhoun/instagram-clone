@@ -163,6 +163,7 @@ function App() {
              type="text"
              placeholder="password"
              value={password}
+             hidden=true
              onChange={(e) => setPassword(e.target.value)}
             />
             <Button 
