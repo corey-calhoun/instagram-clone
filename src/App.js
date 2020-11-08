@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,16 +33,16 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
-  const [posts, setPosts] = React.useState([]); 
-  const [open, setOpen] = React.useState(false);
-  const [openSignIn, setOpenSignIn] = React.useState(false);
-  const [username, setUsername] = React.useState(''); 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [user, setUser] = React.useState(null);
+  const [modalStyle] = useState(getModalStyle);
+  const [posts, setPosts] = useState([]); 
+  const [open, setOpen] = useState(false);
+  const [openSignIn, setOpenSignIn] = useState(false);
+  const [username, setUsername] = useState(''); 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if(authUser) {
         //user logged in 
@@ -53,14 +53,13 @@ function App() {
         setUser(null);
       }
     })
-
     return () => {
       // cleanup action
       unsubscribe();
     }
   }, [user, username]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // this is where the code runs
     db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => { // puts most recent timestamp image first
       //every time a new post is added, this code runs
