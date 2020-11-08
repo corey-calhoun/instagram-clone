@@ -6,7 +6,7 @@ import Post from './components/Post'
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './components/ImageUpload';
-import InstagramEmbed from 'react-instagram-embed';
+import { TwitchPlayer } from 'react-twitch-embed';
 
 
 function getModalStyle() {
@@ -232,17 +232,12 @@ function App() {
           </div>
 
           <div className="posts-right">
-              <InstagramEmbed
-                url='https://www.instagram.com/p/CFcmRVZgGro/'
-                maxWidth={320}
-                hideCaption={false}
-                containerTagName='div'
-                protocol=''
-                injectScript
-                onLoading={() => {}}
-                onSuccess={() => {}}
-                onAfterRender={() => {}}
-                onFailure={() => {}}
+              <TwitchPlayer 
+                channel_id="189224096"
+                channel="black_ice573"
+                game="just chatting"
+                video_id="779913343"
+                autoplay={true}
               />
             </div>
 
