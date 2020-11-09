@@ -6,7 +6,6 @@ import Post from './components/Post'
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './components/ImageUpload';
-import { TwitchPlayer } from 'react-twitch-embed';
 
 
 function getModalStyle() {
@@ -154,9 +153,9 @@ function App() {
             </center>
             <Input 
              type="text"
-             placeholder="email"
-             value={email}
-             onChange={(e) => setEmail(e.target.value)}
+             placeholder="username"
+             value={username}
+             onChange={(e) => setUsername(e.target.value)}
             />
             <Input 
              type="text"
@@ -232,15 +231,8 @@ function App() {
           </div>
 
           <div className="posts-right">
-              <TwitchPlayer 
-                channel_id="189224096"
-                channel="black_ice573"
-                game="just chatting"
-                video_id="779913343"
-                autoplay={true}
-                disableAudio={false}
-              />
-            </div>
+
+          </div>
 
         </div>
       </div>
