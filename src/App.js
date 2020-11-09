@@ -238,6 +238,7 @@ function App() {
                 game="just chatting"
                 video_id="779913343"
                 autoplay={true}
+                disableAudio={false}
               />
             </div>
 
